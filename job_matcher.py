@@ -1,12 +1,11 @@
 import requests
 
 def fetch_and_rank_jobs(skills, experiences, keywords):
-    # Using API
-    api_url = "YOUR API KEY"
+    # Using your custom API
+    api_url = "http://127.0.0.1:8000/jobs"
     params = {
-        'description': ' '.join(skills + keywords),  # Combine skills and keywords for search
-        'location': 'remote' if 'remote' in keywords else '',
-        'full_time': 'true'
+        "search": ' '.join(skills + keywords),  # Combine skills and keywords for search
+        "remote": "true" if "remote" in keywords else "false"
     }
     
     response = requests.get(api_url, params=params)
@@ -15,7 +14,7 @@ def fetch_and_rank_jobs(skills, experiences, keywords):
     # Similarity scoring based on job description and title
     matches = []
     for job in jobs:
-        job_reqs = (job.get('description', '') + ' ' + job.get('title', '')).lower()
+        job_reqs = (job.get('title', '') + ' ' + job.get('description', '')).lower()
         req_tokens = set(job_reqs.split())
         cv_tokens = set(skills + experiences + keywords)
         score = min(len(req_tokens & cv_tokens) / len(req_tokens) * 100, 100) if req_tokens else 0
