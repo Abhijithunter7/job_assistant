@@ -1,8 +1,8 @@
 import requests
 
 def fetch_and_rank_jobs(skills, experiences, keywords):
-    # Using GitHub Jobs API
-    api_url = "https://jobs.github.com/positions.json"
+    # Using API
+    api_url = "YOUR API KEY"
     params = {
         'description': ' '.join(skills + keywords),  # Combine skills and keywords for search
         'location': 'remote' if 'remote' in keywords else '',
