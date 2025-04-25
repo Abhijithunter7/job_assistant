@@ -10,17 +10,17 @@ This module processes uploaded CVs, extracts key information, and matches them w
    ``` Python
    pip install -r requirements.txt
    ```
-2. Request an API key from [USAJOBS Developer](https://developer.usajobs.gov/api-key).
-3. Replace `YOUR_API_KEY_HERE` in `job_matcher.py` with your USAJOBS API key.
+2. Request an API key
+3. Replace `YOUR_API_KEY_HERE` in `job_matcher.py` with your  API key.
 4. Run `main.py` with the path to your CV file.
 
 ### Usage
 
 - Upload a CV in PDF or DOCX format.
-- The script will extract text, identify skills/experiences, and fetch/rank job matches from the USAJOBS API.
+- The script will extract text, identify skills/experiences, and fetch/rank job matches from the  API.
 
 ### Notes
 
-- The USAJOBS API is used (`https://data.usajobs.gov/api/search`) and is limited to U.S. government jobs; explore other APIs for broader coverage.
+- explore other APIs for broader coverage.
 - Expand the `skill_keywords` and `experience_keywords` sets in `skill_extractor.py` for better accuracy.
 - The similarity scoring in `job_matcher.py` is basic; consider using NLP techniques like TF-IDF for better results.
