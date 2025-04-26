@@ -19,10 +19,7 @@ def fetch_and_rank_jobs(skills, experiences, keywords):
         cv_tokens = set(skills + experiences + keywords)
         score = min(len(req_tokens & cv_tokens) / len(req_tokens) * 100, 100) if req_tokens else 0
         matches.append({'title': job['title'], 'score': score})
-<<<<<<< HEAD
+
     
     return sorted(matches, key=lambda x: x['score'], reverse=True)
-=======
 
-    return sorted(matches, key=lambda x: x['score'], reverse=True)
->>>>>>> 4ccb3259b20cc86ae1427c6972638d9e2b4f0add
